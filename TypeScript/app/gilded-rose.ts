@@ -21,8 +21,6 @@ export class GildedRose {
 
   updateQuality() {
     for (let item of this.items) {
-      console.log(item.name);
-
       switch (item.name) {
         case "Aged Brie":
           item.sellIn -= 1;
@@ -34,13 +32,13 @@ export class GildedRose {
           break;
         case "Conjured Mana Cake":
           item.sellIn -= 1;
-          qualityHandlers.deteriorateItem(item, 2);
+          qualityHandlers.handleConjuredItem(item);
           break;
         case "Sulfuras, Hand of Ragnaros":
           break;
         default:
           item.sellIn -= 1;
-          qualityHandlers.deteriorateItem(item, 1);
+          qualityHandlers.handleNormalItem(item);
           break;
       }
     }
